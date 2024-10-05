@@ -2,6 +2,26 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
+# poprawić tę funkcję aby uwzględniała exoplanety
+def calculate_distance_from_parallax(parallax_mas):
+    """
+    Calculate distance in parsecs from parallax in milliarcseconds (mas).
+    
+    Parameters:
+    parallax_mas : float
+        Parallax in milliarcseconds
+    
+    Returns:
+    distance_pc : float
+        Distance in parsecs
+    """
+    if parallax_mas <= 0:
+        return None  # Parallax should be positive for a valid distance
+    
+    distance_pc = 1000 / parallax_mas
+    return distance_pc
+
+
 # Function to convert RA, Dec, and Distance to Cartesian coordinates
 def spherical_to_cartesian(ra, dec, distance):
     # Convert degrees to radians
