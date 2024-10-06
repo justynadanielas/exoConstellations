@@ -15,7 +15,7 @@ def calculate_distance_from_parallax(parallax_mas):
     distance_pc : float
         Distance in parsecs
     """
-    if parallax_mas <= 0:
+    if parallax_mas is None or parallax_mas <= 0:
         return None  # Parallax should be positive for a valid distance
     
     distance_pc = 1000 / parallax_mas
@@ -35,29 +35,29 @@ def spherical_to_cartesian(ra, dec, distance):
     
     return x, y, z
 
-# Example data for two stars (RA, Dec in degrees, Distance in parsecs)
-ra1, dec1, distance1 = 88.792939, 7.407064, 197  # Betelgeuse
-ra2, dec2, distance2 = 101.287155, -16.716116, 8.6  # Sirius
+# # Example data for two stars (RA, Dec in degrees, Distance in parsecs)
+# ra1, dec1, distance1 = 88.792939, 7.407064, 197  # Betelgeuse
+# ra2, dec2, distance2 = 101.287155, -16.716116, 8.6  # Sirius
 
-# Convert to Cartesian coordinates
-x1, y1, z1 = spherical_to_cartesian(ra1, dec1, distance1)
-x2, y2, z2 = spherical_to_cartesian(ra2, dec2, distance2)
+# # Convert to Cartesian coordinates
+# x1, y1, z1 = spherical_to_cartesian(ra1, dec1, distance1)
+# x2, y2, z2 = spherical_to_cartesian(ra2, dec2, distance2)
 
-# Create a 3D plot
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
+# # Create a 3D plot
+# fig = plt.figure()
+# ax = fig.add_subplot(111, projection='3d')
 
-# Plot the stars
-ax.scatter([x1, x2], [y1, y2], [z1, z2], color=['red', 'blue'], s=100, label=['Betelgeuse', 'Sirius'])
+# # Plot the stars
+# ax.scatter([x1, x2], [y1, y2], [z1, z2], color=['red', 'blue'], s=100, label=['Betelgeuse', 'Sirius'])
 
-# Labeling the stars
-ax.text(x1, y1, z1, 'Betelgeuse', color='red')
-ax.text(x2, y2, z2, 'Sirius', color='blue')
+# # Labeling the stars
+# ax.text(x1, y1, z1, 'Betelgeuse', color='red')
+# ax.text(x2, y2, z2, 'Sirius', color='blue')
 
-# Labels and title
-ax.set_xlabel('X (pc)')
-ax.set_ylabel('Y (pc)')
-ax.set_zlabel('Z (pc)')
-ax.set_title('3D Position of Stars')
+# # Labels and title
+# ax.set_xlabel('X (pc)')
+# ax.set_ylabel('Y (pc)')
+# ax.set_zlabel('Z (pc)')
+# ax.set_title('3D Position of Stars')
 
-plt.show()
+# plt.show()
